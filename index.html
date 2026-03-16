@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="theme-color" content="#141210">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The 15-Minute Clarity System — Timur Iskhakov</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,9 +26,9 @@
     --hero-text-dim: rgba(240,236,230,0.55);
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-  html{background:var(--dark-bg2);}
+  html{background:#141210;}
   html{scroll-behavior:smooth;}
-  body{background:var(--dark-bg2);color:var(--light-text);font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;line-height:1.75;overflow-x:hidden;}
+  body{background:#141210 !important;color:var(--light-text);margin:0;padding:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;line-height:1.75;overflow-x:hidden;}
   .container{max-width:760px;margin:0 auto;padding:0 32px;}
   .container--wide{max-width:960px;margin:0 auto;padding:0 32px;}
   .label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;}
@@ -41,7 +42,7 @@
   section{padding:100px 0;}
 
   /* ── HERO LAYOUT: desktop two-col, photo blends into bg ── */
-  .hero__layout{display:grid;grid-template-columns:1fr 480px;gap:0;align-items:center;position:relative;}
+  .hero__layout{display:grid;grid-template-columns:1fr 480px;gap:0;align-items:center;position:relative;max-width:1200px;margin:0 auto;}
   .hero__text{position:relative;z-index:2;padding-right:40px;}
   .hero__photo{position:relative;flex-shrink:0;height:720px;}
   .hero__photo-img{
@@ -66,7 +67,7 @@
   .hero .circle-deco:nth-child(1){width:600px;height:600px;right:-180px;top:-100px;}
   .hero .circle-deco:nth-child(2){width:900px;height:900px;right:-400px;top:-300px;border-color:rgba(196,112,58,0.08);}
   .hero .circle-deco:nth-child(3){width:320px;height:320px;left:-80px;bottom:60px;border-color:rgba(240,236,230,0.05);}
-  .hero__inner{position:relative;z-index:1;}
+  .hero__inner{position:relative;z-index:1;width:100%;}
   .hero__kicker{margin-bottom:36px;display:flex;align-items:center;gap:16px;}
   .hero__kicker::after{content:'';display:block;width:60px;height:1px;background:var(--copper);}
   .hero h1{font-family:'Playfair Display',serif;font-size:clamp(48px,7vw,88px);font-weight:900;line-height:1.1;color:var(--hero-text);margin-bottom:16px;letter-spacing:-0.02em;}
@@ -259,32 +260,41 @@
   .final-meta{margin-top:32px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.15em;color:var(--hero-text-dim);text-transform:uppercase;line-height:2;}
   .final-meta a{color:var(--copper);text-decoration:none;}
 
-  footer{background:var(--dark-bg2);border-top:1px solid rgba(240,236,230,0.06);padding:36px 0;text-align:center;}
+  footer{background:var(--dark-bg2);border-top:1px solid rgba(240,236,230,0.06);padding:36px 0 80px;text-align:center;}
   footer p{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.15em;color:rgba(240,236,230,0.2);text-transform:uppercase;}
 
   .fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
   .fade-in.visible{opacity:1;transform:translateY(0);}
 
   @media(max-width:680px){
-    /* Mobile: photo becomes hero background */
-    .hero{padding:0;min-height:100svh;}
-    .hero__layout{grid-template-columns:1fr;position:relative;min-height:100svh;}
+    /* Mobile: text top, photo below as clean block */
+    .hero{padding:80px 0 0;min-height:auto;}
+    .hero__layout{
+      grid-template-columns:1fr;
+      grid-template-rows:auto auto;
+      gap:0;
+    }
+    .hero__layout::before{display:none;}
+    .hero__text{
+      padding:0 0 56px;
+      position:relative;z-index:2;
+    }
     .hero__photo{
-      position:absolute;inset:0;
-      height:100%;z-index:0;
+      position:relative;
+      width:100vw;
+      margin-left:calc(-50vw + 50%);
+      height:115vw;
+      min-height:400px;
+      max-height:680px;
     }
     .hero__photo-img{
       width:100%;height:100%;
-      object-fit:cover;object-position:top center;
-      -webkit-mask-image:linear-gradient(to bottom, black 40%, rgba(0,0,0,0.5) 70%, transparent 100%);
-      mask-image:linear-gradient(to bottom, black 40%, rgba(0,0,0,0.5) 70%, transparent 100%);
+      object-fit:cover;
+      object-position:top center;
+      display:block;
+      -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%);
+      mask-image:linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%);
     }
-    /* Dark overlay so text reads clearly */
-    .hero__layout::before{
-      content:'';position:absolute;inset:0;z-index:1;
-      background:linear-gradient(to bottom, rgba(20,18,16,0.55) 0%, rgba(20,18,16,0.75) 60%, rgba(20,18,16,0.97) 100%);
-    }
-    .hero__text{position:relative;z-index:2;padding:120px 0 80px;padding-right:0;}
     .hero__photo-caption{display:none;}
 
     .inside-grid,.two-cols{grid-template-columns:1fr;}
@@ -302,7 +312,7 @@
   }
 </style>
 </head>
-<body>
+<body bgcolor="#141210">
 
 <!-- HERO — dark -->
 <section class="hero">
@@ -476,9 +486,6 @@
     </div>
   </div>
 </section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
 
 <!-- MID-PAGE CTA — after results, when person has gotten real value -->
 <div class="inline-cta fade-in">
@@ -661,12 +668,13 @@
     <p>© 2025 Timur Iskhakov · The 15-Minute Clarity System</p>
   </div>
 </footer>
-
+<div style="display:none"></div>
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
+<div style="position:fixed;bottom:-100px;left:0;right:0;height:120px;background:#141210;z-index:0;pointer-events:none;"></div>
 </body>
 </html>
