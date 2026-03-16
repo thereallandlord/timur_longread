@@ -7,7 +7,7 @@
 <title>The 15-Minute Clarity System — Timur Iskhakov</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -28,7 +28,7 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   html{background:#141210;}
   html{scroll-behavior:smooth;}
-  body{background:#141210 !important;color:var(--light-text);margin:0;padding:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;line-height:1.75;overflow-x:hidden;}
+  body{background:#141210 !important;color:var(--light-text);margin:0;padding:0;font-family:'Lora',Georgia,serif;font-size:18px;line-height:1.75;overflow-x:hidden;}
   .container{max-width:760px;margin:0 auto;padding:0 32px;}
   .container--wide{max-width:960px;margin:0 auto;padding:0 32px;}
   .label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;}
@@ -207,7 +207,7 @@
   .faq h2{font-size:clamp(36px,5vw,56px);margin-bottom:56px;}
   .faq-item{padding:40px 0;border-bottom:1px solid var(--light-border);}
   .faq-item:last-child{border-bottom:none;}
-  .faq-item h3{font-size:22px;margin-bottom:16px;font-weight:600;font-family:'Cormorant Garamond',serif;line-height:1.35;color:var(--light-text);}
+  .faq-item h3{font-size:22px;margin-bottom:16px;font-weight:600;font-family:'Lora',Georgia,serif;line-height:1.35;color:var(--light-text);}
   .faq-item p{font-size:19px;color:var(--light-text-dim);font-weight:300;line-height:1.8;}
   .faq-item p strong{color:var(--light-text);font-weight:500;}
 
@@ -675,6 +675,5 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
-<div style="position:fixed;bottom:-100px;left:0;right:0;height:120px;background:#141210;z-index:0;pointer-events:none;"></div>
 </body>
 </html>
